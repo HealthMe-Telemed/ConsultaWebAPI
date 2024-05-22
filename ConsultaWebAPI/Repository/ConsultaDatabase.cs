@@ -27,7 +27,8 @@ namespace ConsultaWebAPI.Repository
                 _logger.LogInformation($"Tentando cadastrar o agendamento no sistema...");
                 
                 await _database.ExecuteAsync(QueryExtensions.QueryInserirConsulta(),
-                new {  
+                new {
+                    idAgendamento= agendamento.IdAgendamento,
                     urlConsulta = url
                 });
 

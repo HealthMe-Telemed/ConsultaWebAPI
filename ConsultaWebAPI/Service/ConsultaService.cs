@@ -14,9 +14,8 @@ namespace ConsultaWebAPI.Service
         {
             _consultaDatabase = consultaDatabase;
         }
-        public async Task<bool> CriarConsulta(string linkConsulta)
+        public async Task<bool> CriarConsulta(Agendamento agendamento,string linkConsulta)
         {
-            var agendamento = new Agendamento();
             var consultaCriada = await _consultaDatabase.InserirConsulta(agendamento, linkConsulta);
             return consultaCriada;
         }

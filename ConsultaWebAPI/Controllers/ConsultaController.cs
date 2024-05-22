@@ -40,7 +40,7 @@ namespace AgendamentoWebAPI.Controllers
             
             var consultaUrl = await _zoomMeetingService.GerarConsultaZoom(agendamento, token.AccessToken);
             
-            //var consultaCriada = await _consultaService.CriarConsulta(consultaUrl);
+            var consultaCriada = await _consultaService.CriarConsulta(agendamento, consultaUrl);
 
             return Ok(consultaUrl);
 

@@ -3,6 +3,7 @@ using ConsultaWebAPI.Service;
 using MySqlConnector;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors();
 
 // Add services to the container.
 
@@ -27,8 +28,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors(options => {options.AllowAnyOrigin(); options.AllowAnyHeader(); options.AllowAnyMethod();});
 
 app.MapControllers();
 
